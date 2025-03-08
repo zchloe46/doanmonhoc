@@ -3,27 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard Xử Lý Văn Bản</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <h1>Dashboard Xử Lý Văn Bản</h1>
     <form method="post">
         {% csrf_token %}
-        <textarea name="text" rows="10" cols="50" placeholder="Nhập văn bản cần xử lý"></textarea><br>
+        <textarea name="text" placeholder="Nhập văn bản cần xử lý"></textarea><br>
         <input type="submit" value="Xử Lý">
     </form>
 
     {% if text %}
-        <h2>Văn bản gốc:</h2>
-        <p>{{ text }}</p>
+        <div class="result">
+            <h2>Văn bản gốc:</h2>
+            <p>{{ text }}</p>
 
-        <h2>Tách từ:</h2>
-        <p>{{ tokens }}</p>
+            <h2>Tách từ:</h2>
+            <p>{{ tokens }}</p>
 
-        <h2>Gán nhãn từ loại:</h2>
-        <p>{{ tagged }}</p>
+            <h2>Gán nhãn từ loại:</h2>
+            <p>{{ tagged }}</p>
 
-        <h2>Phân loại cảm xúc:</h2>
-        <p>{{ sentiment }}</p>
+            <h2>Phân loại cảm xúc:</h2>
+            <p><strong>{{ sentiment }}</strong></p>
+        </div>
     {% endif %}
 </body>
 </html>
