@@ -1,71 +1,141 @@
- /* doanmonhoc/dashboard/static/css/style.css */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+/* Đảm bảo HTML và body chiếm toàn bộ chiều cao */
+html, body {
+    height: 100%;
     margin: 0;
-    padding: 20px;
+    padding: 0;
 }
 
-h1 {
-    color: #2c3e50;
-    text-align: center;
-    margin-bottom: 20px;
+/* Sử dụng Flexbox cho toàn bộ trang */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-h2 {
-    color: #34495e;
-    margin-top: 20px;
+/* Header */
+.header {
+    background: linear-gradient(90deg, #2c3e50, #3498db);
+    padding: 15px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-form {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.nav-menu ul li {
+    margin-left: 30px;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: #f1c40f;
+    transform: scale(1.1);
+    display: inline-block;
+}
+
+/* Body */
+.body {
+    flex: 1 0 auto;
+    background: linear-gradient(135deg, #1a1a3d, #00BFFF); /* Gradient nền giống hình */
+    color: white;
+}
+
+.body h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.function-list {
+    max-width: 800px;
     margin: 0 auto;
 }
 
-textarea {
-    width: 100%;
-    height: 150px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    resize: vertical;
-    font-size: 16px;
-}
-
-input[type="submit"] {
-    background-color: #3498db;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
-    transition: background-color 0.3s;
-}
-
-input[type="submit"]:hover {
-    background-color: #2980b9;
-}
-
-.result {
-    background-color: #ffffff;
+.function-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1); /* Nền mờ giống hình */
+    border-radius: 10px;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: 20px auto;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
 }
 
-.result p {
-    margin: 10px 0;
-    line-height: 1.6;
+.function-card:hover {
+    background: rgba(25, 121, 16, 111);
+    transform: translateX(10px);
 }
 
-.result strong {
-    color: #e74c3c;
+.function-content h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.function-content p {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.arrow {
+    font-size: 1.5rem;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+.animate__fadeIn {
+    animation: fadeIn 1s ease-in;
+}
+
+.animate__bounceIn {
+    animation: bounceIn 0.8s ease-out;
+}
+
+/* Footer */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(90deg, #2c3e50, #34495e);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 24px;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #f1c40f;
+    transform: scale(1.2);
 }
