@@ -78,7 +78,7 @@ body {
 }
 
 .function-card:hover {
-    background: rgba(25, 121, 16, 111);
+    background: #1E90FF;
     transform: translateX(10px);
 }
 

@@ -27,7 +27,14 @@ sentiment_mapping = {
 def dashboard_view(request):
     return render(request, 'dashboard.html')
 
+def contact_view(request):
+    return render(request, 'contact.html')
 
+def about_view(request):
+    return render(request, 'about.html')
+
+def learn_view(request):
+    return render(request, 'learn.html')
 def classify_view(request):
     context = {}
     if request.method == 'POST':
