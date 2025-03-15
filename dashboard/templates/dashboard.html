@@ -1,75 +1,30 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <title>Dashboard Xử Lý Văn Bản</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-3">
-                    <div class="logo">DoAnMonHoc</div>
-                </div>
-                <div class="col-9">
-                    <nav class="nav-menu">
-                        <ul class="d-flex justify-content-end list-unstyled mb-0">
-                            <li><a href="{% url 'about' %}">Thông Tin</a></li>
-                            <li><a href="{% url 'contact' %}">Liên Hệ</a></li>
-                            <li><a href="{% url 'learn' %}">Learn</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
+{% extends 'base.html' %}
 
-    <!-- Body -->
-    <div class="body py-5">
-        <div class="container">
-            <h1 class="text-center mb-5 text-white">XỬ LÝ NGÔN NGỮ TỰ NHIÊN</h1>
-            <div class="function-list d-flex flex-column gap-4">
-                <a href="{% url 'classify' %}" class="function-card">
-                    <div class="function-content">
-                        <h3>PHÂN LOẠI</h3>
-                        <p>Xác định cảm xúc của văn bản (tích cực/tiêu cực).</p>
-                    </div>
-                    <span class="arrow">→</span>
-                </a>
-                <a href="{% url 'tokenize' %}" class="function-card">
-                    <div class="function-content">
-                        <h3>TÁCH TỪ</h3>
-                        <p>Chia văn bản thành các từ riêng lẻ.</p>
-                    </div>
-                    <span class="arrow">→</span>
-                </a>
-                <a href="{% url 'pos_tag' %}" class="function-card">
-                    <div class="function-content">
-                        <h3>GÁN NHÃN</h3>
-                        <p>Gán nhãn từ loại cho từng từ (danh từ, động từ, ...).</p>
-                    </div>
-                    <span class="arrow">→</span>
-                </a>
-            </div>
-        </div>
-    </div>
+{% block title %}Dashboard Xử Lý Văn Bản{% endblock %}
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>© 2025 DoAnMonHoc. All rights reserved.</p>
-            <div class="social-icons mt-2">
-                <a href="#" class="mx-2"><i class="bi bi-facebook"></i></a>
-                <a href="#" class="mx-2"><i class="bi bi-twitter"></i></a>
-                <a href="#" class="mx-2"><i class="bi bi-github"></i></a>
-            </div>
+{% block content %}
+<h1 class="text-center mb-5 text-white">XỬ LÝ NGÔN NGỮ TỰ NHIÊN</h1>
+<div class="function-list d-flex flex-column gap-4">
+    <a href="{% url 'classify' %}" class="function-card">
+        <div class="function-content">
+            <h3>PHÂN LOẠI</h3>
+            <p>Xác định cảm xúc của văn bản (tích cực/tiêu cực).</p>
         </div>
-    </footer>
-</body>
-</html>
+        <span class="arrow">→</span>
+    </a>
+    <a href="{% url 'tokenize' %}" class="function-card">
+        <div class="function-content">
+            <h3>TÁCH TỪ</h3>
+            <p>Chia văn bản thành các từ riêng lẻ.</p>
+        </div>
+        <span class="arrow">→</span>
+    </a>
+    <a href="{% url 'pos_tag' %}" class="function-card">
+        <div class="function-content">
+            <h3>GÁN NHÃN</h3>
+            <p>Gán nhãn từ loại cho từng từ (danh từ, động từ, ...).</p>
+        </div>
+        <span class="arrow">→</span>
+    </a>
+</div>
+{% endblock %}

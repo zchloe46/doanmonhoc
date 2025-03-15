@@ -89,23 +89,3 @@ def pos_tag_view(request):
             context['tagged'] = tagged
             context['text'] = text
     return render(request, 'pos_tag.html', context)
-
-# def dashboard_view(request):
-#     if request.method == 'POST':
-#         text = request.POST.get('text', '')
-#         tokens = word_tokenize(text)
-#         tagged = pos_tag(text)
-#         sentiment = classify(text)[0]  # Lấy kết quả phân loại
-#
-#         # Ánh xạ sang giá trị có dấu và định dạng
-#         sentiment_display = sentiment_mapping.get(sentiment, sentiment)
-#         sentiment_formatted = sentiment_display.replace('_', ' ').capitalize()
-#
-#         context = {
-#             'text': text,
-#             'tokens': tokens,
-#             'tagged': tagged,
-#             'sentiment': sentiment_formatted,  # Truyền giá trị đã định dạng
-#         }
-#         return render(request, 'dashboard.html', context)
-#     return render(request, 'dashboard.html')
