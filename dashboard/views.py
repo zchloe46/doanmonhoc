@@ -50,7 +50,7 @@ def test_view(request):
             result_phan_loai = sentiment_mapping.get(sentiment, sentiment.capitalize())  # Chuyển đổi nhãn phân loại thành tên dễ đọc
 
             # Lưu vào bảng vanban trong DB
-            Test.objects.create(
+            db = Test.objects.create(
                 content=text,
                 resultTachTu=tokens,
                 resultGanNhan=tagged,
@@ -88,13 +88,9 @@ def classify_view(request):
             text = ''
         
         if text:
-            # Lưu văn bản vào bảng van_ban
-            van_ban = VanBan.objects.create(content=text)
             # Thực hiện phân loại
             sentiment = classify(text)[0]
             result_phan_loai = sentiment_mapping.get(sentiment, sentiment)
-            # Lưu kết quả vào bảng phan_loai
-            # PhanLoai.objects.create(idVB=van_ban, resultPhanloai=sentiment)
             context['sentiment'] = result_phan_loai
             context['text'] = text
             context['success'] = True
@@ -111,13 +107,9 @@ def tokenize_view(request):
         else:
             text = ''
         
-        if text:
-            # Lưu văn bản vào bảng van_ban
-            van_ban = VanBan.objects.create(content=text)
+        if text:    
             # Thực hiện tách từ
             tokens = word_tokenize(text)
-            # Lưu kết quả vào bảng tach_tu
-            # TachTu.objects.create(idVB=van_ban, resultTachtu=str(tokens))
             context['tokens'] = tokens
             context['text'] = text
             context['success'] = True
@@ -135,12 +127,8 @@ def pos_tag_view(request):
             text = ''
         
         if text:
-            # Lưu văn bản vào bảng van_ban
-            van_ban = VanBan.objects.create(content=text)
             # Thực hiện gán nhãn
             tagged = pos_tag(text)
-            # Lưu kết quả vào bảng gan_nhan
-            # GanNhan.objects.create(idVB=van_ban, resultGannhan=str(tagged))
             context['tagged'] = tagged
             context['text'] = text
             context['success'] = True
