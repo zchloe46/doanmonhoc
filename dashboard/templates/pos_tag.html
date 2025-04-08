@@ -16,6 +16,7 @@
                     <input type="file" name="file" class="form-control mb-3" id="fileInput" onchange="readFile(this)">
                     <button type="submit" class="btn btn-primary w-100">Gán nhãn</button>
                 </form>
+                {% if success %}            
                 <div class="mt-4">
                     <h4>Kết Quả</h4>
                     <textarea id="result" class="form-control mb-3" rows="4" readonly>{{ tagged }}</textarea>
@@ -24,6 +25,7 @@
                         Copy
                     </button>
                 </div>
+                {% endif %}
             </div>
 
 

@@ -5,40 +5,24 @@ from .models import Contact, Test, VanBan, PhanLoai, TachTu, GanNhan
 
 
 sentiment_mapping = {
-                'Pháp luật': 'phapluat',
-                'Kinh tế': 'kinhte',
-                'Giáo dục': 'giaoduc',
-                'Thể thao': 'thethao',
-                'Thế giới': 'thegioi',
-                'Sức khỏe': 'suckhoe',
-                'Văn hóa': 'vanhoa',
-                'Xã hội': 'xahoi',
-                'Công nghệ': 'congnghe',
-                'Du lịch': 'dulich',
-                'Thời trang': 'thoitrang',
-                'Giải trí': 'giaitri',
-                'Tâm sự': 'tamsu',
-                'Ẩm thực': 'amthuc',
-                'Xe': 'xe',
-                'Bất động sản': 'batdongsan',
-                'Nông nghiệp': 'nongnghiep',
-                'Môi trường': 'moitruong',
-                'Tài chính': 'taichinh',
-                'Khởi nghiệp': 'khoinghiep',
-                'Bảo hiểm': 'baohiem',
-                'Thương mại điện tử': 'thuongmaidientu',
-                'Truyền thông': 'truyenthong',
-                'Khoa học': 'khoahoc',
-                'Giải trí': 'giaitri',
-            }
+                'the_thao': 'Thể thao',
+                'phap_luat': 'Pháp luật',
+                'the_gioi': 'Thế giới',
+                'doi_song': 'Đời sống',
+                'chinh_tri_xa_hoi': 'Chính trị xã hội',
+                'vi_tinh': 'Vi tính',
+                'khoa_hoc': 'Khoa học',
+                'van_hoa': 'Văn hóa',
+                'kinh_doanh': 'Kinh doanh',
+                'suc_khoe': 'Sức khỏe'
+}
 
 def dashboard_view(request):
     return render(request, 'dashboard.html')
 
 def about_view(request):
     return render(request, 'about.html')
-def learn_view(request):
-    return render(request, 'learn.html')
+
 
 def test_view(request):
     context = {}
@@ -62,26 +46,25 @@ def test_view(request):
             result_gan_nhan = ', '.join([f"{word}/{tag}" for word, tag in tagged])
 
             # Thực hiện phân loại
-            sentiment = classify(text)[0].replace('_', ' ').capitalize()
-            # ánh xạ kết quả phân loại như: Pháp luật (hiển thị) -> phapluat (trong DB)
-            
+            sentiment = classify(text)[0]
+            result_phan_loai = sentiment_mapping.get(sentiment, sentiment.capitalize())  # Chuyển đổi nhãn phân loại thành tên dễ đọc
 
             # Lưu vào bảng vanban trong DB
-            test_entry = Test.objects.create(
+            Test.objects.create(
                 content=text,
                 resultTachTu=tokens,
                 resultGanNhan=tagged,
-                resultPhanLoai=sentiment
+                resultPhanLoai=result_phan_loai
             )
 
             # Truyền kết quả vào context để hiển thị trên giao diện
             context['text'] = text
             context['tokens'] = result_tach_tu
             context['tagged'] = tagged
-            context['sentiment'] = sentiment
+            context['sentiment'] = result_phan_loai
             context['success'] = True
 
-    return render(request, 'test.html', context)
+    return render(request, 'test.html', context)  # trả về template test.html
     
 def contact_view(request):
     if request.method == 'POST':
@@ -108,11 +91,13 @@ def classify_view(request):
             # Lưu văn bản vào bảng van_ban
             van_ban = VanBan.objects.create(content=text)
             # Thực hiện phân loại
-            sentiment = classify(text)[0].replace('_', ' ').capitalize()
+            sentiment = classify(text)[0]
+            result_phan_loai = sentiment_mapping.get(sentiment, sentiment)
             # Lưu kết quả vào bảng phan_loai
             # PhanLoai.objects.create(idVB=van_ban, resultPhanloai=sentiment)
-            context['sentiment'] = sentiment
+            context['sentiment'] = result_phan_loai
             context['text'] = text
+            context['success'] = True
     return render(request, 'classify.html', context)
 
 def tokenize_view(request):
@@ -135,6 +120,7 @@ def tokenize_view(request):
             # TachTu.objects.create(idVB=van_ban, resultTachtu=str(tokens))
             context['tokens'] = tokens
             context['text'] = text
+            context['success'] = True
     return render(request, 'tokenize.html', context)
 
 def pos_tag_view(request):
@@ -157,5 +143,6 @@ def pos_tag_view(request):
             # GanNhan.objects.create(idVB=van_ban, resultGannhan=str(tagged))
             context['tagged'] = tagged
             context['text'] = text
+            context['success'] = True
     return render(request, 'pos_tag.html', context)
 

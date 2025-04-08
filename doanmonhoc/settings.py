@@ -86,12 +86,12 @@ pymysql.install_as_MySQLdb()  # Cần thiết để Django nhận diện PyMySQL
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',  # Vẫn giữ nguyên backend này
+        'ENGINE': 'django.db.backends.mysql',  
         'NAME': 'nlp_vietnamese',
         'USER': 'root',
         'PASSWORD': '',
-        'HOST': 'localhost',  # Hoặc IP của máy chủ MySQL
-        'PORT': '3306',       # Cổng mặc định của MySQL
+        'HOST': 'localhost', 
+        'PORT': '3306',      
         'OPTIONS': {
             'charset': 'utf8mb4',  # Để hỗ trợ tiếng Việt và emoji
         },

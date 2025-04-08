@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Tách Từ Văn Bản{% endblock %}
 
@@ -15,11 +16,18 @@
                     <input type="file" name="file" class="form-control mb-3" id="fileInput" onchange="readFile(this)">
                     <button type="submit" class="btn btn-primary w-100">Tách từ</button>
                 </form>
-                {% if tokens %}
-                    <div class="result mt-3 animate__bounceIn">
-                        <p>Kết quả: {{ tokens }}</p>
-                    </div>
+
+                {% if success %}            
+                <div class="mt-4">
+                    <h4>Kết Quả</h4>
+                    <textarea id="result" class="form-control mb-3" rows="4" readonly>{{ tokens }}</textarea>
+                    <button id="copyButton" class="btn btn-secondary">
+                        <img src="{% static 'images/image.png' %}" alt="Copy Icon" style="width: 20px; height: 20px; margin-right: 5px;">
+                        Copy
+                    </button>
+                </div>
                 {% endif %}
+
             </div>
 
 

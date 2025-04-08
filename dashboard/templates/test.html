@@ -29,11 +29,7 @@
 
                     <h5>Phân loại</h5>
                     <textarea id="result" class="form-control mb-3" rows="4" readonly>{{ sentiment }}</textarea>
-                    <button id="copyButton" class="btn btn-secondary">
-                        <img src="{% static 'images/image.png' %}" alt="Copy Icon"
-                            style="width: 20px; height: 20px; margin-right: 5px;">
-                        Copy
-                    </button>
+                
                 </div>
             {% endif %}
 
@@ -51,14 +47,6 @@
             reader.readAsText(input.files[0]); // Đọc file dưới dạng text
         }
     }
-
-    // Hàm sao chép nội dung của textarea vào clipboard
-    document.getElementById('copyButton').addEventListener('click', function () {
-        const resultText = document.getElementById('result');
-        resultText.select();
-        document.execCommand('copy');
-        alert('Kết quả đã được sao chép!');
-    });
 </script>
 
 {% endblock %}
