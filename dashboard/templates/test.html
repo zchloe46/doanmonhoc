@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Xử Lý Văn Bản{% endblock %}
+
+{% block content %}
+
+<!-- Body -->
+
+        <h1 class="text-center mb-4">Xử Lý Văn Bản</h1>
+        <div class="card p-4 shadow-sm">
+            <form method="post" enctype="multipart/form-data" class="form-group">
+                {% csrf_token %}
+                <textarea name="text" class="form-control mb-3" placeholder="Nhập văn bản để xử lý" id="textInput"
+                    rows="5">{{ text }}</textarea>
+                <p class="text-center">Hoặc tải file lên:</p>
+                <input type="file" name="file" class="form-control mb-3" id="fileInput" onchange="readFile(this)">
+                <button type="submit" class="btn btn-primary w-100">Xử lý</button>
+            </form>
+            {% if success %}
+                <div class="mt-4">
+                    <div>
+                        <h5>Tách từ</h5>
+                        <textarea id="result" class="form-control mb-3" rows="4" readonly>{{ tokens }}</textarea>
+                    </div>
+
+                    <h5>Gán nhãn</h5>
+                    <textarea id="result" class="form-control mb-3" rows="4" readonly>{{ tagged }}</textarea>
+
+                    <h5>Phân loại</h5>
+                    <textarea id="result" class="form-control mb-3" rows="4" readonly>{{ sentiment }}</textarea>
+                    <button id="copyButton" class="btn btn-secondary">
+                        <img src="{% static 'images/image.png' %}" alt="Copy Icon"
+                            style="width: 20px; height: 20px; margin-right: 5px;">
+                        Copy
+                    </button>
+                </div>
+            {% endif %}
+
+        </div>
+
+
+<script>
+    // Hàm đọc File và hiển thị nội dung vào textarea
+    function readFile(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('textInput').value = e.target.result;
+            };
+            reader.readAsText(input.files[0]); // Đọc file dưới dạng text
+        }
+    }
+
+    // Hàm sao chép nội dung của textarea vào clipboard
+    document.getElementById('copyButton').addEventListener('click', function () {
+        const resultText = document.getElementById('result');
+        resultText.select();
+        document.execCommand('copy');
+        alert('Kết quả đã được sao chép!');
+    });
+</script>
+
+{% endblock %}

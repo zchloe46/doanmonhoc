@@ -25,7 +25,7 @@ body {
 .logo {
     font-size: 28px;
     font-weight: bold;
-    color: white;
+    color: #ffffff; /* Ensure proper contrast */
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -50,7 +50,7 @@ body {
 /* Body */
 .body {
     flex: 1 0 auto;
-    background: linear-gradient(135deg, #1a1a3d, #3b1a5a); /* Gradient nền giống hình */
+    background-image: url('/static/images/subVisual.jpg'); /* Corrected path */
     color: white;
 }
 
@@ -78,7 +78,7 @@ body {
 }
 
 .function-card:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: hsla(0, 0%, 100%, 0);
     transform: translateX(10px);
 }
 
@@ -118,22 +118,84 @@ body {
     animation: bounceIn 0.8s ease-out;
 }
 
+
 /* Footer */
 .footer {
     flex-shrink: 0;
     background: linear-gradient(90deg, #2c3e50, #34495e);
     color: white;
-    padding: 20px 0;
+    padding: 40px 0;
     text-align: center;
 }
 
+.footer .container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* Cột logo */
+.footer .logo img {
+    max-height: 30px;
+    alt: "Logo"; /* Add alt text for accessibility */
+}
+
+.footer .logo p {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+/* Cột danh sách thành viên, thông tin pháp lý, liên hệ */
+.footer h5 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.footer ul {
+    padding: 0;
+    list-style: none;
+}
+
+.footer ul li {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.footer ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer ul li a:hover {
+    color: #f1c40f;
+}
+
+/* Liên hệ */
+.footer p {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+/* Mạng xã hội */
 .social-icons a {
     color: white;
-    font-size: 24px;
+    font-size: 18px;
     transition: all 0.3s ease;
+    margin: 0 5px;
 }
 
 .social-icons a:hover {
     color: #f1c40f;
     transform: scale(1.2);
 }
+
+/* Dòng bản quyền */
+.footer .copyright {
+    margin-top: 20px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+

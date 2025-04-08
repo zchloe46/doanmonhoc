@@ -1,25 +1,28 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Phân Loại Văn Bản{% endblock %}
 
 {% block content %}
     <!-- Body -->
-    <div class="body py-5">
-        <div class="container">
+
             <h1 class="text-center mb-4">Phân Loại Văn Bản</h1>
             <div class="card p-4 shadow-sm">
                 <form method="post" enctype="multipart/form-data" class="form-group">
                     {% csrf_token %}
-                    <textarea name="text" class="form-control mb-3" placeholder="Nhập văn bản để phân loại" id="textInput">{{ text }}</textarea>
+                    <textarea name="text" class="form-control mb-3" placeholder="Nhập văn bản để phân loại" id="textInput" rows="5">{{ text }}</textarea>
                     <p class="text-center">Hoặc tải file lên:</p>
                     <input type="file" name="file" class="form-control mb-3" id="fileInput" onchange="readFile(this)">
                     <button type="submit" class="btn btn-primary w-100">Phân loại</button>
                 </form>
-                {% if sentiment %}
-                    <div class="result mt-3 animate__bounceIn">
-                        <p>Kết quả: <strong>{{ sentiment }}</strong></p>
-                    </div>
-                {% endif %}
+                <div class="mt-4">
+                    <h4>Kết Quả</h4>
+                    <textarea id="result" class="form-control mb-3" rows="4" readonly>{{ sentiment }}</textarea>
+                    <button id="copyButton" class="btn btn-secondary">
+                        <img src="{% static 'images/image.png' %}" alt="Copy Icon" style="width: 20px; height: 20px; margin-right: 5px;">
+                        Copy
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -36,5 +39,13 @@
                 reader.readAsText(input.files[0]); // Đọc file dưới dạng text
             }
         }
+
+        // Hàm sao chép nội dung của textarea vào clipboard
+        document.getElementById('copyButton').addEventListener('click', function() {
+            const resultText = document.getElementById('result');
+            resultText.select();
+            document.execCommand('copy');
+            alert('Kết quả đã được sao chép!');
+        });
     </script>
 {% endblock %}

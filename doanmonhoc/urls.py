@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from dashboard.views import dashboard_view, classify_view, tokenize_view, pos_tag_view, contact_view, about_view, learn_view, dashboardtest_view
+from dashboard.views import dashboard_view, classify_view, tokenize_view, pos_tag_view, contact_view, about_view, learn_view, test_view
 
 urlpatterns = [
     #    path('admin/', admin.site.urls),
@@ -28,5 +28,5 @@ urlpatterns = [
     path('classify/', classify_view, name='classify'),
     path('tokenize/', tokenize_view, name='tokenize'),
     path('pos_tag/', pos_tag_view, name='pos_tag'),
-
+    path('test/', test_view, name='test'),
 ]

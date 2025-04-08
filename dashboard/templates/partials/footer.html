@@ -1,11 +1,40 @@
 {% load static %}
-<footer class="footer">
+<footer class="footer bg-dark text-white py-4">
     <div class="container">
-        <p>© 2025 DoAnMonHoc. All rights reserved.</p>
-        <div class="social-icons mt-2">
-            <a href="#" class="mx-2"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="mx-2"><i class="bi bi-twitter"></i></a>
-            <a href="#" class="mx-2"><i class="bi bi-github"></i></a>
+        <div class="row">
+            <div class="col-md-3 text-center">
+                <img src="{% static 'images/zzback.png' %}" alt="Logo" class="img-fluid" style="max-height: 80px;">
+                <p class="mt-2">DoAnMonHoc</p>
+            </div>
+
+            <div class="col-md-3">
+                <h5>Thành viên dự án</h5>
+                <ul class="list-unstyled">
+                    <li>Trần Ngọc Ánh</li>
+                    <li>Phạm Tú Anh</li>
+                    <li>Khương Đình Được</li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Người hướng dẫn</h5>
+                <ul class="list-unstyled">
+                    <li>Đỗ Thị Hồng Lĩnh</li>
+                </ul>
+            </div>
+
+            <div class="col-md-3">
+                <h5>Liên hệ</h5>
+                <p>Email: zomanaha2k3@gmail.com</p>
+                <div class="social-icons mt-2">
+                    <a href="#" class="mx-2 text-white"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="mx-2 text-white"><i class="bi bi-twitter"></i></a>
+                    <a href="https://github.com/zchloe46" class="mx-2 text-white"><i class="bi bi-github"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-3">
+            <p>© 2025 Zomanaha. All rights reserved.</p>
         </div>
     </div>
 </footer>

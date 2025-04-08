@@ -5,13 +5,12 @@
 {% block content %}
 
     <!-- Body -->
-    <div class="body py-5">
-        <div class="container">
+
             <h1 class="text-center mb-4">Tách Từ Văn Bản</h1>
             <div class="card p-4 shadow-sm">
                 <form method="post" enctype="multipart/form-data" class="form-group">
                     {% csrf_token %}
-                    <textarea name="text" class="form-control mb-3" placeholder="Nhập văn bản để tách từ" id="textInput">{{ text }}</textarea>
+                    <textarea name="text" class="form-control mb-3" placeholder="Nhập văn bản để tách từ" id="textInput" rows="5">{{ text }}</textarea>
                     <p class="text-center">Hoặc tải file lên:</p>
                     <input type="file" name="file" class="form-control mb-3" id="fileInput" onchange="readFile(this)">
                     <button type="submit" class="btn btn-primary w-100">Tách từ</button>
@@ -22,8 +21,7 @@
                     </div>
                 {% endif %}
             </div>
-        </div>
-    </div>
+
 
 
     <script>
@@ -36,5 +34,13 @@
                 reader.readAsText(input.files[0]); // Đọc file dưới dạng text
             }
         }
+
+        // Hàm sao chép nội dung của textarea vào clipboard
+        document.getElementById('copyButton').addEventListener('click', function() {
+            const resultText = document.getElementById('result');
+            resultText.select();
+            document.execCommand('copy');
+            alert('Kết quả đã được sao chép!');
+        });
     </script>
 {% endblock %}

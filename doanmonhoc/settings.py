@@ -80,16 +80,24 @@ WSGI_APPLICATION = 'doanmonhoc.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+import pymysql
+pymysql.install_as_MySQLdb()  # Cần thiết để Django nhận diện PyMySQL như MySQLdb
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.mysql',  # Vẫn giữ nguyên backend này
         'NAME': 'nlp_vietnamese',
         'USER': 'root',
         'PASSWORD': '',
-        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-        'PORT': '3306',
+        'HOST': 'localhost',  # Hoặc IP của máy chủ MySQL
+        'PORT': '3306',       # Cổng mặc định của MySQL
+        'OPTIONS': {
+            'charset': 'utf8mb4',  # Để hỗ trợ tiếng Việt và emoji
+        },
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
