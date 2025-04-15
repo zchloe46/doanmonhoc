@@ -1,10 +1,5 @@
 .dist
-.idea
 .venv
 __pycache__
 venv38
-đồ_án.docx
-~$đồ_án.docx
-# db.sqlite3
-img.png
-media
+tailieu
