@@ -1,11 +1,11 @@
-# DjangoProject1
+# Doanmonhoc
 
 ## Overview
 This project is a Django web application designed to perform text classification and tokenization using the UnderTheSea library. It includes functionalities for sentiment analysis, tokenization, and part-of-speech tagging.
 
 ## Project Structure
 ```
-DjangoProject1
+doanmonhoc
 ├── dashboard
 │   ├── migrations
 │   │   └── __init__.py
@@ -15,7 +15,7 @@ DjangoProject1
 │   ├── apps.py
 │   ├── tests.py
 │   └── __init__.py
-├── DjangoProject1
+├── doanmonhoc
 │   ├── __init__.py
 │   ├── settings.py
 │   ├── urls.py
@@ -29,23 +29,24 @@ DjangoProject1
 - Python 3.8
 - Django
 - UnderTheSea
+- Pymysql
 
 ## Setup Instructions
+
 1. Clone the repository:
    ```
-   git clone <repository-url>
-   cd DjangoProject1
+   git clone https://github.com/zchloe46/doanmonhoc.git
+   cd doanmonhoc
    ```
 
 2. Create a virtual environment:
    ```
-   python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   py 3.8 -m venv .venv
    ```
 
 3. Install the required packages:
    ```
-   pip install django underthesea
+   pip install django underthesea pymysql
    ```
 
 4. Configure the database settings in `DjangoProject1/settings.py` to connect to your MySQL database.
@@ -62,14 +63,6 @@ DjangoProject1
 
 ## Usage
 - Access the application at `http://127.0.0.1:8000/`.
-- Use the admin panel at `http://127.0.0.1:8000/admin/` to manage database records.
-
-## Models
-The application includes the following models:
-- `van_ban`: Represents the text data.
-- `tach_tu`: Represents tokenized words.
-- `gan_nhan`: Represents tagged data.
-- `phan_loai`: Represents classified data.
 
 ## Contributing
 Contributions are welcome! Please submit a pull request or open an issue for any suggestions or improvements.

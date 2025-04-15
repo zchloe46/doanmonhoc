@@ -3,7 +3,14 @@ from underthesea import word_tokenize, pos_tag, classify
 
 from .models import  Test
 
-
+# N	    anh từ (noun)
+# Np	Danh từ riêng (proper noun)
+# V	    Động từ (Verb)
+# E	    Giới từ (Preposition)
+# P	    Đại từ (Pronoun)
+# C	    Liên từ (Conjunction)
+# A	    Tính từ (Adjective)
+# CH	Dấu câu (Punctuation) m
 sentiment_mapping = {
                 'the_thao': 'Thể thao',
                 'phap_luat': 'Pháp luật',
