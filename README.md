@@ -26,7 +26,7 @@ doanmonhoc
 ```
 
 ## Requirements
-- Python 3.8
+- Python 3.8.10
 - Django
 - UnderTheSea
 - Pymysql
