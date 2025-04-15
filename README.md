@@ -49,7 +49,7 @@ doanmonhoc
    pip install django underthesea pymysql
    ```
 
-4. Configure the database settings in `DjangoProject1/settings.py` to connect to your MySQL database.
+4. Configure the database settings in `doanmonhoc/settings.py` to connect to your MySQL database.
 
 5. Run migrations to set up the database:
    ```
