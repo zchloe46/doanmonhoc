@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from underthesea import word_tokenize, pos_tag, classify
 
-from .models import Contact, Test
+from .models import  Test
 
 
 sentiment_mapping = {
@@ -22,6 +22,9 @@ def dashboard_view(request):
 
 def about_view(request):
     return render(request, 'about.html')
+
+def contact_view(request):
+    return render(request, 'contact.html')
 
 
 def test_view(request):
@@ -65,16 +68,7 @@ def test_view(request):
             context['success'] = True
 
     return render(request, 'test.html', context)  # trả về template test.html
-    
-def contact_view(request):
-    if request.method == 'POST':
-        name = request.POST.get('name', '')
-        email = request.POST.get('email', '')
-        phone = request.POST.get('phone', '')
-        message = request.POST.get('message', '')
-        Contact.objects.create(name=name, email=email, phone= phone, message=message)
-        return render(request, 'contact.html', {'success': True})
-    return render(request, 'contact.html')
+
 
 def classify_view(request):
     context = {}
