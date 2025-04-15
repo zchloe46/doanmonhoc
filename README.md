@@ -26,7 +26,7 @@ DjangoProject1
 ```
 
 ## Requirements
-- Python 3.x
+- Python 3.8
 - Django
 - UnderTheSea
 
@@ -55,12 +55,7 @@ DjangoProject1
    python manage.py migrate
    ```
 
-6. Create a superuser to access the admin panel:
-   ```
-   python manage.py createsuperuser
-   ```
-
-7. Run the development server:
+6. Run the development server:
    ```
    python manage.py runserver
    ```

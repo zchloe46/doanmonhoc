@@ -140,14 +140,14 @@ body {
 }
 
 .footer .logo p {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     margin-top: 8px;
 }
 
 /* Cột danh sách thành viên, thông tin pháp lý, liên hệ */
 .footer h5 {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     margin-bottom: 15px;
     text-transform: uppercase;
@@ -159,7 +159,7 @@ body {
 }
 
 .footer ul li {
-    font-size: 16px;
+    font-size: 14px;
     margin-bottom: 8px;
 }
 
@@ -175,27 +175,20 @@ body {
 
 /* Liên hệ */
 .footer p {
-    font-size: 16px;
+    font-size: 14px;
     margin-bottom: 8px;
 }
 
 /* Mạng xã hội */
 .social-icons a {
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     transition: all 0.3s ease;
-    margin: 0 5px;
+    /* margin: 0 5px; */
 }
 
 .social-icons a:hover {
     color: #f1c40f;
     transform: scale(1.2);
-}
-
-/* Dòng bản quyền */
-.footer .copyright {
-    margin-top: 20px;
-    font-size: 14px;
-    opacity: 0.8;
 }
 

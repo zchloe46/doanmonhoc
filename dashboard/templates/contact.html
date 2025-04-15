@@ -5,30 +5,29 @@
 
 {% block content %}
     <!-- Body -->
+            <h1 class="text-center mb-5 text-white">LIÊN HỆ</h1>
+            <div class="contact-content">
+                <p class="intro-text mb-5">
+                    Chào mừng bạn đến với trang <strong>Liên Hệ</strong> của Zomanaha. Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn để mang lại trải nghiệm tốt nhất khi sử dụng dịch vụ của chúng tôi. Nếu bạn có bất kỳ câu hỏi, góp ý, hoặc cần hỗ trợ, hãy liên hệ với chúng tôi qua các thông tin dưới đây.
+                </p>
 
-            <h1 class="text-center mb-4">Liên Hệ</h1>
-            <div class="card p-4 shadow-sm">
-                <form method="post" class="form-group">
-                    {% csrf_token %}
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Tên của bạn</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
-                    </div>
+                <!-- Thông Tin Liên Hệ Chính -->
+                <div class="mb-5">
+                    <h2 class="section-title">1. THÔNG TIN LIÊN HỆ CHÍNH</h2>
+                    <p><strong>Phone: 0796093667</strong></p>
+                    <p><strong>Email hỗ trợ khách hàng:</strong> <a href="mailto:zomanaha2k3@gmail.com">zomanaha2k3@gmail.com</a></p>                    
+                </div>
 
-                    <div class="mb-3">
-                        <label for="phone" class="form-label">Số điện thoại</label>
-                        <input type="text" class="form-control" id="phone" name="phone" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="message" class="form-label">Tin nhắn</label>
-                        <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary w-100">Gửi</button>
-                </form>
+                <!-- Liên Hệ Qua Mạng Xã Hội -->
+                <div class="mb-5">
+                    <h2 class="section-title">2. LIÊN HỆ QUA MẠNG XÃ HỘI</h2>
+                    <p>Ngoài email, bạn cũng có thể liên hệ và cập nhật thông tin mới nhất từ Zomanaha qua các kênh mạng xã hội chính thức:</p>
+                    <ul class="social-links list-unstyled">
+                        <li><i class="bi bi-envelope"></i> <strong>Email:</strong> <a href="mailto:zomanaha2k3@gmail.com">zomanaha2k3@gmail.com</a></li>
+                        <li><i class="bi bi-facebook"></i> <strong>Facebook:</strong> <a href="https://www.facebook.com/zomanaha">https://www.facebook.com/zomanaha</a></li>
+                        <li><i class="bi bi-github"></i> <strong>GitHub:</strong> <a href="https://github.com/zchloe46/doanmonhoc">https://github.com/zchloe46/doanmonhoc</a></li>
+                    </ul>
+                </div>
             </div>
 
 

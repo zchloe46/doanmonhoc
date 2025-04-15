@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from underthesea import word_tokenize, pos_tag, classify
 
-from .models import Contact, Test, VanBan, PhanLoai, TachTu, GanNhan
+from .models import Contact, Test
 
 
 sentiment_mapping = {
