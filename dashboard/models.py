@@ -14,3 +14,4 @@ class Test(models.Model):
 
     class Meta:
         db_table = 'vanban'
+

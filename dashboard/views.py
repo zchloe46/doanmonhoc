@@ -33,6 +33,36 @@ def about_view(request):
 def contact_view(request):
     return render(request, 'contact.html')
 
+def result_view(request):
+    # Lấy tất cả bản ghi ban đầu
+    results = Test.objects.all()
+
+    # Lấy tham số tìm kiếm từ query string
+    tag = request.GET.get('tag', '')
+    date = request.GET.get('date', '')
+    # Lấy danh sách các nhãn có sẵn trong cơ sở dữ liệu
+    available_tags = Test.objects.values_list('resultPhanLoai', flat=True).distinct()
+
+    # Lọc theo nhãn
+    if tag and tag in set(available_tags):
+        results = results.filter(resultPhanLoai=tag)  # 
+    # Lọc theo ngày
+    if date:
+        try:
+            year, month, day = map(int, date.split('-')) # Chia chuỗi ngày thành năm, tháng, ngày
+            # Lọc theo ngày tháng năm
+            results = results.filter(time__year=year, time__month=month, time__day=day) 
+        except ValueError:
+            pass  # Ignore invalid date formats
+    
+    context = {
+        'results': results,
+        'tag': tag,
+        'date': date,
+        'available_tags': available_tags,
+    }
+    return render(request, 'ketqua.html', context)
+
 
 def test_view(request):
     context = {}
@@ -75,6 +105,7 @@ def test_view(request):
             context['success'] = True
 
     return render(request, 'test.html', context)  # trả về template test.html
+
 
 
 def classify_view(request):

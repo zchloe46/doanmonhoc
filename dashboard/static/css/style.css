@@ -4,6 +4,9 @@ html, body {
     margin: 0;
     padding: 0;
     background-image: url('/static/images/1691973.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 /* Sử dụng Flexbox cho toàn bộ trang */
@@ -25,7 +28,7 @@ body {
 .logo {
     font-size: 28px;
     font-weight: bold;
-    color: #ffffff; /* Ensure proper contrast */
+    color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -50,7 +53,6 @@ body {
 /* Body */
 .body {
     flex: 1 0 auto;
-    
     color: white;
 }
 
@@ -69,7 +71,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(255, 255, 255, 0.1); /* Nền mờ giống hình */
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     padding: 20px;
     text-decoration: none;
@@ -118,11 +120,10 @@ body {
     animation: bounceIn 0.8s ease-out;
 }
 
-
 /* Footer */
 .footer {
     flex-shrink: 0;
-    background: linear-gradient(90deg, #2b3744, #34495e00);
+    background: #212529; /* bg-dark */
     color: white;
     padding: 40px 0;
     text-align: center;
@@ -134,18 +135,16 @@ body {
 }
 
 /* Cột logo */
-.footer .logo img {
+.footer img {
     max-height: 30px;
-    alt: "Logo"; /* Add alt text for accessibility */
 }
 
-.footer .logo p {
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 8px;
+.footer p {
+    font-size: 14px;
+    margin-bottom: 8px;
 }
 
-/* Cột danh sách thành viên, thông tin pháp lý, liên hệ */
+/* Cột danh sách thành viên, người hướng dẫn, liên hệ */
 .footer h5 {
     font-size: 16px;
     font-weight: bold;
@@ -174,9 +173,14 @@ body {
 }
 
 /* Liên hệ */
-.footer p {
-    font-size: 14px;
-    margin-bottom: 8px;
+.footer p a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer p a:hover {
+    color: #f1c40f;
 }
 
 /* Mạng xã hội */
@@ -184,7 +188,6 @@ body {
     color: white;
     font-size: 16px;
     transition: all 0.3s ease;
-    /* margin: 0 5px; */
 }
 
 .social-icons a:hover {
@@ -192,3 +195,60 @@ body {
     transform: scale(1.2);
 }
 
+/* Result Page */
+.search-form {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.search-form label {
+    color: white;
+    font-weight: bold;
+}
+
+.search-form .form-select,
+.search-form .form-control {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+}
+
+.search-form .form-select option {
+    background-color: #2c3e50;
+    color: white;
+}
+
+.search-form .btn-primary {
+    background-color: #f1c40f;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.search-form .btn-primary:hover {
+    background-color: #e67e22;
+}
+
+.result-list {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.table-dark {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.table-dark th,
+.table-dark td {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.table-dark th {
+    background-color: rgba(255, 255, 255, 0.2);
+    text-transform: uppercase;
+}
+
+.table-dark td {
+    vertical-align: middle;
+}

@@ -16,12 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from dashboard.views import dashboard_view, classify_view, tokenize_view, pos_tag_view, about_view, test_view, contact_view
+from dashboard.views import dashboard_view, result_view, classify_view, tokenize_view, pos_tag_view, about_view, test_view, contact_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', dashboard_view, name='dashboard'),
     path('contact/', contact_view, name='contact'),
+    path('ketqua/', result_view, name='ketqua'),
     path('about/', about_view, name='about'),
     path('classify/', classify_view, name='classify'),
     path('tokenize/', tokenize_view, name='tokenize'),

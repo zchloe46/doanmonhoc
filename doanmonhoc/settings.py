@@ -31,13 +31,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'dashboard',
+    'django.contrib.admin',  # Quản trị viên Django
+    'django.contrib.auth',  # Xác thực người dùng
+    'django.contrib.contenttypes',  # Quản lý các loại nội dung
+    'django.contrib.sessions',  # Quản lý phiên làm việc
+    'django.contrib.messages',  # Quản lý thông điệp
+    'django.contrib.staticfiles',  # Quản lý tệp tĩnh
+    'dashboard',  # Ứng dụng của bạn
 ]
 
 MIDDLEWARE = [
@@ -131,10 +131,8 @@ USE_L10N = True               # Hỗ trợ định dạng địa phương
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / "dashboard/static"]
+STATICFILES_DIRS = [BASE_DIR / "dashboard/static"]  
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

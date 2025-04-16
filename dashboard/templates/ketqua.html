@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Body -->
+<div class="body py-5">
+    <div class="container">
+        <h1 class="text-center mb-5 text-white">KẾT QUẢ XỬ LÝ VĂN BẢN</h1>
+        
+        <!-- Form Tìm Kiếm -->
+        <div class="search-form mb-5">
+            <form method="get" class="row g-3">
+                <div class="col-md-4">
+                    <label for="tag" class="form-label">Tìm kiếm theo nhãn</label>
+                    <select name="tag" id="tag" class="form-select">
+                        <option value="">Tất cả</option>
+                        {% for available_tag in available_tags %}
+                            <option value="{{ available_tag }}" {% if tag == available_tag %}selected{% endif %}>
+                                {{ available_tag }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="date" class="form-label">Tìm kiếm theo ngày</label>
+                    <input type="date" name="date" id="date" class="form-control" value="{{ date|date:'Y-m-d' }}">
+                </div>
+                <div class="col-md-4 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary w-100">Tìm kiếm</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Kết Quả Tìm Kiếm -->
+        <div class="result-list">
+            {% if results %}
+                <table class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Thời gian</th>
+                            <th>Nội dung văn bản</th>                            
+                            <th>Kết quả tách từ</th>
+                            <th>Kết quả gán nhãn</th>
+                            <th>Kết quả phân loại</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for result in results %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ result.time|date:"d/m/Y" }}</td>
+                                <td><textarea style="width: 400px;">{{ result.content }}</textarea></td>                            
+                                <td><textarea>{{ result.resultTachTu|default:"-" }}</textarea></td>
+                                <td><textarea>{{ result.resultGanNhan|default:"-" }}</textarea></td>
+                                <td><textarea>{{ result.resultPhanLoai|default:"-" }}</textarea></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p class="text-center">Không tìm thấy kết quả nào.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
